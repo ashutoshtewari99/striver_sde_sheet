@@ -1,37 +1,59 @@
 class MinStack
 {
-    stack<int> st;
 
 public:
-    MinStack()
-    {
-    }
+    stack<long long> s; 
+    long long minEle;
 
     void push(int val)
     {
-        st.push(val);
+        if (s.empty())
+        {
+            s.push(val);
+            minEle = val;
+        }
+
+        else if (val >= minEle)
+            s.push(val);
+
+        else if (val < minEle)
+        {
+            s.push((long long)2 * val - minEle);
+            minEle = val;
+        }
     }
 
     void pop()
     {
-        st.pop();
+        if (!s.empty())
+
+        {
+            if (s.top() >= minEle)
+                s.pop();
+
+            else if (s.top() < minEle)
+            {
+                minEle = (long long)2 * minEle - s.top();
+                s.pop();
+            }
+        }
     }
 
     int top()
     {
-        int n = st.top();
-        return n;
+        if (!s.empty())
+        {
+            if (s.top() >= minEle)
+                return s.top();
+            return minEle;
+        }
+        return -1;
     }
 
     int getMin()
     {
-        stack<int> dummy = st;
-        int min_el = INT_MAX;
-        while (dummy.size() != 0)
-        {
-            min_el = min(min_el, dummy.top());
-            dummy.pop();
-        }
-        return min_el;
+        if (!s.empty())
+            return minEle;
+        return -1;
     }
 };
