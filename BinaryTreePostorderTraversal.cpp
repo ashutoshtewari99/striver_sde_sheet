@@ -23,7 +23,7 @@ public:
         if (root == NULL)
             return postorder;
 
-        while (left != NULL or !st.empty())
+        while (curr != NULL or !st.empty())
         {
             if (curr != NULL)
             {
@@ -37,13 +37,13 @@ public:
                 {
                     temp = st.top();
                     st.pop();
-                    postorder.push(temp);
+                    postorder.push_back(temp->val);
 
-                    while (!st.empty() && temp == st.top->right)
+                    while (!st.empty() && temp == st.top()->right)
                     {
                         temp = st.top();
                         st.pop();
-                        postorder.push(temp->val);
+                        postorder.push_back(temp->val);
                     }
                 }
                 else
@@ -54,5 +54,4 @@ public:
         }
         return postorder;
     }
-}
 };
