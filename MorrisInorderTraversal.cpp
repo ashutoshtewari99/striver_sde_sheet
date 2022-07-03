@@ -1,7 +1,7 @@
 class Solution
 {
 public:
-    vector<int> preorderTraversal(TreeNode *root)
+    vector<int> inorderTraversal(TreeNode *root)
     {
         vector<int> inorder;
         TreeNode *cur = root;
