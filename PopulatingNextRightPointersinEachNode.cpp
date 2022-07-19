@@ -14,7 +14,9 @@ public:
         {
             int size = q.size();
             if (size == 0)
+            {
                 return root;
+            }
 
             while (size > 0)
             {
