@@ -45,6 +45,7 @@ public:
                 }
                 size--;
             }
+            
         }
         return root;
     }
