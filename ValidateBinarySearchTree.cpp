@@ -17,6 +17,7 @@ public:
         {
             return false;
         }
+        
         return isValidBST(root->left, minVal, root->val) && isValidBST(root->right, root->val, maxVal);
     }
 };
