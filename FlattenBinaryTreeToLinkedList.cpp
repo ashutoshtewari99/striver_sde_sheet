@@ -10,7 +10,6 @@ public:
         root->right=temp; //now shift temp to right
         fill(root->right); //call on right
     }
-    
     void flatten(TreeNode* root) {
         TreeNode* rc = root;
         fill(rc);
